@@ -51,10 +51,10 @@ alldata$activityId<-as.factor(alldata$activityId)
 alldata$activityName<-as.factor(alldata$activityName)
 
 ###  Save clear dataset to tidy.csv file  
-write.csv(alldata, file = "tidy.csv",row.names = FALSE)
+write.table(alldata, file = "tidy.csv",row.names = FALSE)
 
 ###  Create data set with the average of each variable for each activity and each subject.
 alldata1<- alldata %>% group_by(subjectId,activityId,activityName) %>% summarise_all(funs(mean))
 
 ###  Save aggregated data to tidyAggregated.csv file 
-write.csv(alldata1, file = "tidyAggregated.csv",row.names = FALSE) 
+write.table(alldata1, file = "tidyAggregated.csv",row.names = FALSE) 
